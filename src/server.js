@@ -7,7 +7,7 @@ io.on('connection', (socket) => {
 
   socket.on('file-error', (payload) => {
     console.log('ERROR', payload);
-    socket.broadcast.emit('error', payload);
+    socket.broadcast.emit('err', payload);
   });
 
   socket.on('file-save', (payload) => {
@@ -18,5 +18,5 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     console.log('DISCONNECTED', socket.id);
   });
-  
+
 });

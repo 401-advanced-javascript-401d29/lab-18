@@ -10,12 +10,12 @@ let readFile = util.promisify(fs.readFile);
 let writeFile = util.promisify(fs.writeFile);
 
 const loadFile = (file) => readFile(file);
-const saveFile = (file, buffer) => writeFile(file.buffer);
+const saveFile = (file, buffer) => writeFile(file, buffer);
 const convertBuffer = buffer => Buffer.from( buffer.toString().trim().toUpperCase());
 
 const alterFile = (file) => {
   loadFile(file)
-    .then(buffer => convertBuffer(buffer) )
+    .then(content => convertBuffer(content) )  
       .then(buffer => saveFile(file, buffer) )
         .then( success => socket.emit('file-save', {status:1, file: file, text: "File was Saved"}))
           .catch( error => socket.emit('file-error', {status:0, file: file, text: error.message}));
