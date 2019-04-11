@@ -20,7 +20,7 @@
 * Within first terminal window
   * `nodemon server.js`
 * Within the second terminal window
-  * `nc localhost 3001`
+  * `nc localhost 3000`
 * Within the third terminal window
   * `nodemon logger.js`
 * To run save functionality
